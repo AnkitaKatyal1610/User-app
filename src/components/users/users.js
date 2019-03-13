@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 
 import * as userActions from '../../actions/user.action';
 import UserModal from './userModal';
-
+import { path } from '../../constants/path';
 export class Users extends Component {
 
     state = {
@@ -32,6 +32,7 @@ export class Users extends Component {
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>Avatar</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Gender</th>
@@ -43,6 +44,7 @@ export class Users extends Component {
                             this.props.users.map((user, i) => (
                                 <tr key={i}>
                                     <td>{i + 1}</td>
+                                    <td><img src={path + user.picture} alt='avatar' height='50px' width='50px' /></td>
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
                                     <td>{user.gender}</td>

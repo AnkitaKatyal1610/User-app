@@ -5,6 +5,7 @@ export const getUsers = () => {
 }
 
 export const addUser = (user) => {
+    console.log(user);
     return baseService.post(`/user`, user);
 }
 
