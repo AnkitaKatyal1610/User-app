@@ -41,14 +41,15 @@ export const addUserAction = (user) => {
     }
 }
 
-export const editUserAction = (id, user) => {
+export const editUserAction = (id, user, data) => {
     return (dispatch) => {
-        return services.editUser(id, user)
+        return services.editUser(id, data)
             .then(response => {
                 if (response.status === 200) {
                     dispatch({
                         type: types.EDIT_USER_SUCCESS,
-                        user: user
+                        user: user,
+                        img: response.data
                     })
                 }
             }).catch(error => {
